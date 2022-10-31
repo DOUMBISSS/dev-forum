@@ -115,3 +115,17 @@ header{
   padding: 2rem;
   font-weight: bold;
 }
+.category--link{
+  color: #3490dc;
+    text-decoration: none;
+    background-color: transparent;
+    color: #000;
+}
+.category--link:hover{
+  color: #3490dc;
+}
+/* .row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
