@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;700&family=Bebas+Neue&family=Cairo:wght@300;700&family=Edu+VIC+WA+NT+Beginner&family=Montserrat:wght@100&family=Mouse+Memoirs&family=Orbitron&family=Oswald:wght@200&family=Play&family=Rajdhani:wght@300;700&family=Teko:wght@300;400&family=Titillium+Web:ital,wght@0,700;1,200&display=swap');
+*{
+  /* font-family: 'Advent Pro', sans-serif; */
+  /* font-family: 'Oswald', sans-serif; */
+  font-family: 'Rajdhani', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  transition: all .2s linear;
+}
+body{
+  animation: fadeInLeft 1s linear;
+}
+header{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+.navbar--left{
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar--logo{
+  width: 230px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar--right{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.navbar--right--content{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-right:2rem;
+}
+.logo{
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+.login--part{
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profil{
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+.container--connexion{
+  margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid coral; */
+}
+.container--first--part{
+  width: 50%;
+  height: 95vh;
+  background-color: #0069ff;
+  border-radius: 0.5rem 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container--login{
+  width: 50%;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login--content{
+  width: 600px;
+  padding: 3rem;
+}
+.btn{
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #0069ff;
+}
+.login--content--header{
+  color: #000;
+}
+.container--first--part--content--header{
+  color: white;
+  font-size: 3rem;
+}
+.main--header--part{
+  border: 1px solid coral;
+  background-color: #0069ff;
+  text-align: center;
+  padding: 2rem;
+  font-weight: bold;
+}
