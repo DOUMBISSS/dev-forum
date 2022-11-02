@@ -99,46 +99,8 @@ export default function Accueil (){
                                             </div>
                                         </div>
                                     </div>
-
-                                                <div className="card no-border p-3 my-3">
-                                                    <div className="question "><h2 className="question__title">
-                                                    <Link className="question__link"> ZRFG</Link>
-                                                        </h2><div className="question__time">05/31/2022</div>
-                                                        <p className="question__description my-2">ZVBTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTGght</p>
-                                                        <div className="d-flex justify-content-between">
-                                                            <span className="numbers--question--answers">0 reponses</span>
-                                                            <div><a href="#empty" className="question__tags">MongoDB</a></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                            <div className="card no-border p-3 my-3">
-                                                                <div className="question ">
-                                                                <Link className="question__link"> test</Link>
-                                                                    <div className="question__time">05/26/2022</div>
-                                                                    <p className="question__description my-2">d,jh</p>
-                                                                    <div className="d-flex justify-content-between">
-                                                                        <span className="numbers--question--answers">3 reponses</span>
-                                                                        <div><a href="#empty" className="question__tags">Nosql</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                                        <div className="card no-border p-3 my-3">
-                                                                            <div className="question ">
-                                                                                <h2 className="question__title">
-                                                                                <Link className="question__link"> jl:tr</Link></h2>
-                                                                                    <div className="question__time">06/02/2022</div>
-                                                                                    <p className="question__description my-2">'rhtu</p>
-                                                                                    <div className="d-flex justify-content-between">
-                                                                                        <span className="numbers--question--answers">0 reponses</span>
-                                                                                        <div><a href="#empty" className="question__tags">MongoDB</a>
-                                                                                        <a href="#empty" className="question__tags">PHP</a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                        </div>
-                                                                        </div>
+                                    
+                                 </div>
 
             </div>
         </div>
