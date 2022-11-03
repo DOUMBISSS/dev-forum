@@ -1,9 +1,17 @@
 import Navbar from "./Navbar";
 import {Link} from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 
 
 export default function Accueil (){
+
+    const questions = useSelector(state=>state.questionReducer.questions)
+    // const dispatch = useDispatch();
+
+    // dispatch (AddQuestion(questions))
+
+
     return (
         <div>
             <Navbar/>
@@ -42,12 +50,26 @@ export default function Accueil (){
 
                 <div className="col-lg-9 col-md-12">
                         <div className="main--part--question">
-                            <span>7 questions</span>
+                            <span>{questions.length} questions</span>
                             <Link to="/question">
                                 <button className="btn--question">Poser une question <i class="fa-solid fa-arrow-right"></i></button>
                             </Link>
                         </div>
-                        <div className="card no-border p-3 my-3">
+
+                        {questions.map((question,i)=> <div key={i} className="card no-border p-3 my-3">
+                            <div className="question ">
+                                <h2 className="question__title">
+                                    <Link to='/details' className="question__link">{question.title}</Link></h2>
+                                    <p className="question__time">05/26/2022</p>
+                                    <p className="question__description my-2">{question.content}</p>
+                                    <div className="d-flex justify-content-between">
+                                      <span className="numbers--question--answers">4 reponses</span>
+                                        <div><a href="#empty" className="question__tags">React</a></div>
+                                    </div>
+                            </div>
+                            </div>
+                        )}
+                        {/* <div className="card no-border p-3 my-3">
                             <div className="question ">
                                 <h2 className="question__title">
                                     <Link to='/details' className="question__link">Comment Gerer les users firebase ?</Link></h2>
@@ -58,9 +80,9 @@ export default function Accueil (){
                                         <div><a href="#empty" className="question__tags">React</a></div>
                                     </div>
                             </div>
-                            </div>
+                            </div> */}
                                         
-                                <div className="card no-border p-3 my-3">
+                                {/* <div className="card no-border p-3 my-3">
                                     <div className="question ">
                                                 <h2 className="question__title">
                                                 <Link className="question__link"> mlkjh</Link></h2>
@@ -71,9 +93,9 @@ export default function Accueil (){
                                             <div><a href="#empty" className="question__tags">PHP</a></div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div className="card no-border p-3 my-3">
+                                {/* <div className="card no-border p-3 my-3">
                                     <div className="question ">
                                         <h2 className="question__title">
                                             <Link className="question__link"> Regex.test</Link></h2>
@@ -84,9 +106,9 @@ export default function Accueil (){
                                                 <div><a href="#empty" className="question__tags">React</a></div>
                                             </div>
                                     </div>
-                                </div>
+                                </div> */}
                                                 
-                                    <div className="card no-border p-3 my-3">
+                                    {/* <div className="card no-border p-3 my-3">
                                         <div className="question "><h2 className="question__title">
                                             <a className="question__link" href="/question/m3hgxiYOjryZ6kE48dTo/details">ml;kjh</a></h2>
                                             <div className="question__time">Today at 11:48 AM</div>
@@ -98,7 +120,7 @@ export default function Accueil (){
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     
                                  </div>
 
