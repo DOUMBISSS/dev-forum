@@ -3,6 +3,7 @@
 
 const initialState = {
     questions: [],
+    comments:[]
 }
 
 export function questionReducer(state = initialState, action) {
@@ -10,8 +11,12 @@ export function questionReducer(state = initialState, action) {
         case "ADD-QUESTION": {
             return {
                 ...state,questions :[...state.questions,action.payload]
+            } 
+        }
+        case "ADD-COMMENT":{
+            return {
+                ...state,comments :[...state.comments,action.payload]
             }
-            // console.log(action.payload)
         }
         default: {
             return state

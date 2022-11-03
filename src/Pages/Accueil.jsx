@@ -6,10 +6,8 @@ import { useSelector } from "react-redux";
 
 export default function Accueil (){
 
+    
     const questions = useSelector(state=>state.questionReducer.questions)
-    // const dispatch = useDispatch();
-
-    // dispatch (AddQuestion(questions))
 
 
     return (
@@ -56,10 +54,10 @@ export default function Accueil (){
                             </Link>
                         </div>
 
-                        {questions.map((question,i)=> <div key={i} className="card no-border p-3 my-3">
-                            <div className="question ">
+                        {questions.map((question,id)=> <div key={id} className="card no-border p-3 my-3">
+                            <div className="question">
                                 <h2 className="question__title">
-                                    <Link to='/details' className="question__link">{question.title}</Link></h2>
+                                    <Link to={`/details/${question.id}`} className="question__link">{question.title}</Link></h2>
                                     <p className="question__time">05/26/2022</p>
                                     <p className="question__description my-2">{question.content}</p>
                                     <div className="d-flex justify-content-between">
@@ -69,7 +67,7 @@ export default function Accueil (){
                             </div>
                             </div>
                         )}
-                        {/* <div className="card no-border p-3 my-3">
+                        <div className="card no-border p-3 my-3">
                             <div className="question ">
                                 <h2 className="question__title">
                                     <Link to='/details' className="question__link">Comment Gerer les users firebase ?</Link></h2>
@@ -80,49 +78,8 @@ export default function Accueil (){
                                         <div><a href="#empty" className="question__tags">React</a></div>
                                     </div>
                             </div>
-                            </div> */}
-                                        
-                                {/* <div className="card no-border p-3 my-3">
-                                    <div className="question ">
-                                                <h2 className="question__title">
-                                                <Link className="question__link"> mlkjh</Link></h2>
-                                        <div className="question__time">05/26/2022</div>
-                                        <p className="question__description my-2">kljh</p>
-                                        <div className="d-flex justify-content-between">
-                                            <span className="numbers--question--answers">0 reponses</span>
-                                            <div><a href="#empty" className="question__tags">PHP</a></div>
-                                        </div>
-                                    </div>
-                                </div> */}
-
-                                {/* <div className="card no-border p-3 my-3">
-                                    <div className="question ">
-                                        <h2 className="question__title">
-                                            <Link className="question__link"> Regex.test</Link></h2>
-                                            <div className="question__time">05/31/2022</div>
-                                            <p className="question__description my-2">comment utriliser un regex.test()</p>
-                                            <div className="d-flex justify-content-between">
-                                                <span className="numbers--question--answers">0 reponses</span>
-                                                <div><a href="#empty" className="question__tags">React</a></div>
-                                            </div>
-                                    </div>
-                                </div> */}
-                                                
-                                    {/* <div className="card no-border p-3 my-3">
-                                        <div className="question "><h2 className="question__title">
-                                            <a className="question__link" href="/question/m3hgxiYOjryZ6kE48dTo/details">ml;kjh</a></h2>
-                                            <div className="question__time">Today at 11:48 AM</div>
-                                            <p className="question__description my-2">;,njh</p>
-                                            <div className="d-flex justify-content-between">
-                                                <span className="numbers--question--answers">0 reponses</span>
-                                                <div><a href="#empty" className="question__tags">PHP</a>
-                                                <a href="#empty" className="question__tags">Nosql</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> */}
-                                    
-                                 </div>
+                            </div>
+                        </div>
 
             </div>
         </div>
