@@ -12,18 +12,18 @@ export default function Details () {
     const comments = useSelector(state=>state.questionReducer.comments);
     const dispatch = useDispatch ()
 
-    const [comment,setComment]=useState();
+    const [commentUser,setCommentUser]=useState();
 
     const handleText =(event)=>{
-        setComment(event.target.value);
+        setCommentUser(event.target.value);
     }
 
 
     const handleComment =()=>{
         dispatch(addComment({
-            comment
+            commentUser
         }))
-        setComment(" ");
+        setCommentUser(" ");
     }
 
     
@@ -70,7 +70,7 @@ export default function Details () {
                                                                 <div className="comment__ago"> <i className="fa-solid fa-clock"></i> il y'a 1min</div>
                                                             </div>
                                                                 <div className="comment__text">
-                                                                    <p>{comment.comment}</p>
+                                                                    <p>{comment.commentUser}</p>
                                                                 </div>
                                                         </div>
                                                     </div>
@@ -78,7 +78,7 @@ export default function Details () {
                                                               
                                                                 <div className="mt-3">
                                                                     <form>
-                                                                        <textarea name="content" id="commentInput" cols="30" rows="3" className="form-control" placeholder="Ajouter un commentaire..." onChange={handleText} value={comment}></textarea>
+                                                                        <textarea name="content" id="commentInput" cols="30" rows="3" className="form-control" placeholder="Ajouter un commentaire..." onChange={handleText} value={commentUser}></textarea>
                                                                             <div className="d-flex justify-content-end mt-3">
                                                                                  <button className="btn btn-primary text-white text-right shadow-sm" type="submit" onClick={handleComment}>Commenter </button>
                                                                                     </div>

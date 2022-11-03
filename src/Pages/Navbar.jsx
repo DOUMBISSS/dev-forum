@@ -15,7 +15,7 @@ export default function Navbar () {
       <header>
       <div className="navbar--left">
             <div className="navbar--logo">
-              <Link className = "logo" to="/Accueil"><h4>Baroland</h4></Link>
+              <Link className ="logo" to="/Accueil"><h4>Baroland</h4></Link>
             </div>
           </div>
           <div className="navbar--right">
