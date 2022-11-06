@@ -1,7 +1,7 @@
 import React from 'react';
-import { useSelector ,useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
-import { addUser } from '../Redux/actions';
+// import { addUser } from '../Redux/actions';
 
 export default function Navbar () {
 
