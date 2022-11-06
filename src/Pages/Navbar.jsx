@@ -21,10 +21,10 @@ export default function Navbar () {
           <div className="navbar--right">
             <div className="navbar--right--content">
               <div className='profil'>
-                  <h6>{email.email}</h6>
+                  <h6><i class="fa-solid fa-user"></i>{email.email}</h6>
               </div>
               <div className='login--part'>
-                  <h6>Logout</h6>
+                  <h6><i class="fa-solid fa-right-from-bracket"></i>Logout</h6>
               </div>
             </div>   
           </div>  

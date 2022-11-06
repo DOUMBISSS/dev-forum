@@ -56,10 +56,10 @@ header{
   width: 20%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 .profil{
-  width: 10%;
+  width: 15%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,16 +84,20 @@ header{
   align-items: center;
   justify-content: center;
 }
-.container--login{
+.containter--second--part{
   width: 50%;
   height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.container--login{
+  width: 90%;
+}
 .login--content{
   width: 600px;
-  padding: 3rem;
+  padding-right: 6rem;
+  padding-left: 6rem;
 }
 .btn{
   width: 100%;
@@ -232,3 +236,23 @@ header{
 .form-floating{
   margin-top: 1rem !important;
 }
+.container--login--header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn--header{
+  background-color: #0069ff;
+  border-radius: 0.9rem;
+  color: #f3f5f9;
+  width: 200px;
+  margin-right: 1rem;
+  padding: 0.6rem;
+  transition: ease-in-out .2s;
+}
+/* .overlay{
+  background-color:#0069ff;
+}
+.overlay-content{
+  background-color: #000;
+} */

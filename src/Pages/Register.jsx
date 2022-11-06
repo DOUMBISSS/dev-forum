@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 export default function Register (){
     return (
         <div>
-             <div className='container--login'>
                   <div className='login--content'>
                   <h1 className='login--content--header'>Créer mon compte</h1>
                       <form>
@@ -26,11 +25,9 @@ export default function Register (){
                           <input type="password" class="form-control" id="floatingPassword" placeholder="Confirm Password"/>
                           <label for="floatingPassword">Mot de passe (confirmation)</label>
                         </div>
-                        <Link to='/Accueil'><button type="submit" class="btn btn-primary btn-block shadow">Connexion</button></Link>
+                        <Link to='/Accueil'><button type="submit" class="btn btn-primary btn-block shadow">Inscription</button></Link>
                       </form>
-                      <p>Si vous n'avez pas de compte, vous pouvez vous <i>inscrire</i></p>
                   </div>
             </div>
-        </div>
     )
 }
