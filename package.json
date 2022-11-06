@@ -2,7 +2,7 @@
   "name": "dev-forum",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://doumbisss.githu.io/dev-forum",
+  "homepage": "http://doumbisss.github.io/dev-forum",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
