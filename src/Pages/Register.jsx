@@ -42,7 +42,7 @@ export default function Register (){
     return (
         <div>
                   <div className='login--content'>
-                  <h1 className='login--content--header'>Créer mon compte</h1>
+                  <h2 className='login--content--header'>Créer mon compte</h2>
                       <form onSubmit={handleRegister}>
                       <div class="form-floating mb-3">
                           <input type="text" class="form-control" id="floatingInput" placeholder="Name"/>

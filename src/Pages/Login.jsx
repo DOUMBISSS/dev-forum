@@ -46,7 +46,7 @@ export default function Login (){
     return (
               <div>
                   <div className='login--content'>
-                  <h1 className='login--content--header'>Se connecter</h1>
+                  <h2 className='login--content--header'>Se connecter</h2>
                       <form>
                       <div className="form-floating mb-3">
                           <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" required ref={loginEmail}/>
