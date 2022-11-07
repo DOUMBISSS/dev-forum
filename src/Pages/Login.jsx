@@ -54,7 +54,7 @@ export default function Login (){
                         </div>
                         <div className="form-floating">
                           <input type="password" className="form-control" id="floatingPassword" placeholder="Password" required ref={loginPassword}/>
-                          <label for="floatingPassword">Mot de pqsse</label>
+                          <label for="floatingPassword">Mot de passe</label>
                         </div>
                         <Link to='/Accueil'><button type="submit" className="btn btn-primary btn-block shadow" onSubmit={Connexion}>Connexion</button></Link>
                       </form>
