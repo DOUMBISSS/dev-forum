@@ -37,10 +37,8 @@ export default function Details () {
                             <div className="question-detail__title">
                                 <a href="#empty" className="d-flex flex-column align-items-center no-underline ">
                                     <i className="fa-solid fa-heart"></i>
-                                <span>10</span></a>
-                                <div>
+                                    <span>10</span></a>
                                     <h1>{questions.title}</h1>
-                                </div>
                             </div>
 
                             <div className="question-detail__content">
@@ -75,20 +73,21 @@ export default function Details () {
                                                         </div>
                                                     </div>
                                                     )}
-                                                              
-                                                                <div className="mt-3">
-                                                                    <form>
-                                                                        <textarea name="content" id="commentInput" cols="30" rows="3" className="form-control" placeholder="Ajouter un commentaire..." onChange={handleText} value={commentUser}></textarea>
-                                                                            <div className="d-flex justify-content-end mt-3">
-                                                                                 <button className="btn btn-primary text-white text-right shadow-sm" type="submit" onClick={handleComment}>Commenter </button>
-                                                                                    </div>
-                                                                        </form>
-                                                                            </div>
-                            </div>
+
+                                    <div className="mt-3">
+                                    <form>
+                                        <textarea name="content" id="commentInput" cols="30" rows="3" className="form-control" placeholder="Ajouter un commentaire..." onChange={handleText} value={commentUser}></textarea>
+                                            <div className="d-flex justify-content-end mt-3">
+                                                <button className="btn btn-primary text-white text-right shadow-sm" type="submit" onClick={handleComment}>Commenter </button>
+                                                    </div>
+                                    </form>
+                                            </div>
+                                    </div>
                                                                                                                         
                          <div className="col-md-12 col-lg-3">
                             <Link to='/Accueil'><button className="btn--back">Retour <i className="fa-solid fa-arrow-left"></i></button></Link>
-                                </div>
+                        </div>
+
                     </div>
                     </div>
                     </div>     
