@@ -50,11 +50,11 @@ export default function Login (){
                       <form>
                       <div className="form-floating mb-3">
                           <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" required ref={loginEmail}/>
-                          <label for="floatingInput">Email address</label>
+                          <label for="floatingInput">Email </label>
                         </div>
                         <div className="form-floating">
                           <input type="password" className="form-control" id="floatingPassword" placeholder="Password" required ref={loginPassword}/>
-                          <label for="floatingPassword">Password</label>
+                          <label for="floatingPassword">Mot de pqsse</label>
                         </div>
                         <Link to='/Accueil'><button type="submit" className="btn btn-primary btn-block shadow" onSubmit={Connexion}>Connexion</button></Link>
                       </form>

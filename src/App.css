@@ -73,7 +73,6 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid coral; */
 }
 .container--first--part{
   width: 50%;
@@ -250,9 +249,30 @@ header{
   padding: 0.6rem;
   transition: ease-in-out .2s;
 }
-/* .overlay{
-  background-color:#0069ff;
+
+
+
+@media only screen and (max-width:576px){
+  .container--connexion{
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+  }
+  .container--first--part{
+    width: 100%;
+    height: 30vh;
+  }
+  .containter--second--part{
+    width: 100%;
+    height: 30vh;
+  }
+  .container--login{
+    height: 90%;
+  }
+  .login--content{
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
 }
-.overlay-content{
-  background-color: #000;
-} */
