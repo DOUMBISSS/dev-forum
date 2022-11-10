@@ -4,17 +4,19 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 
 
-
 export default function Accueil (){
 
     
     const questions = useSelector(state=>state.questionReducer.questions);
     const [searchQuestion, setSearchQuestion] = useState();
+    const todayDate = new Date(Date.now()).toISOString().slice(0, 10);
+
+    // console.log(questions)
 
 
     return (
         <div>
-            <Navbar setSearch={setSearchQuestion} search={searchQuestion}/>
+            <Navbar setSearchQuestion={setSearchQuestion} searchQuestion={searchQuestion}/>
             <div className="container">
                 <div className="row">
                         <div className="col-lg-3 col-md-12">
@@ -56,11 +58,11 @@ export default function Accueil (){
                             </Link>
                         </div>
 
-            {questions.filter(question=> {
+            {questions.filter(question => {
               if (searchQuestion === ""){
                 return question;
               }
-              else if (question.title.toLocaleLowerCase().includes(searchQuestion.toLocaleLowerCase())){
+              else if (question.title?.toLocaleLowerCase().includes(searchQuestion?.toLocaleLowerCase())){
                 return question;
               }
               return 0;
@@ -68,7 +70,7 @@ export default function Accueil (){
                             <div className="question">
                                 <h2 className="question__title">
                                     <Link to={`/details/${question.id}`} className="question__link">{question.title}</Link></h2>
-                                    <p className="question__time">05/26/2022</p>
+                                    <p className="question__time">{todayDate}</p>
                                     <p className="question__description my-2">{question.content}</p>
                                     <div className="d-flex justify-content-between">
                                       <span className="numbers--question--answers">4 reponses</span>
