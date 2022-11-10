@@ -1,15 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
-import { useState } from 'react';
+// import { useState } from 'react';
 // import { addUser } from '../Redux/actions';
 
-export default function Navbar ({search,setSearch}) {
+export default function Navbar ({searchQuestion,setSearchQuestion}) {
 
   const email =useSelector(state=>state.connexionReducer.email)
 
   const handleSearch = (e)=>{
-    setSearch(e.target.value);
+    setSearchQuestion(e.target.value);
   }
 
   // console.log(search)
@@ -42,7 +42,7 @@ export default function Navbar ({search,setSearch}) {
                         <p className="text-white font-weight-bold">Ce forum est ouvert à toutes les questions liées à la programmation.<br/>
                         (PHP, Javascript, Java, C++, Ruby, Firebase, C, React, Dart, Julia...)</p>
                     <div className="w-100">
-                        <input type="text" className="form-control form-control-lg w-100" placeholder="Rechercher des questions" onChange={handleSearch} value={search}/>
+                        <input type="text" className="form-control form-control-lg w-100" placeholder="Rechercher des questions" onChange={handleSearch} value={searchQuestion}/>
                     </div>
                 </div>
              </div>

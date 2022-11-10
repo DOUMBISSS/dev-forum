@@ -9,12 +9,12 @@ export default function Accueil (){
 
     
     const questions = useSelector(state=>state.questionReducer.questions);
-    const [search, setSearch] = useState();
+    const [searchQuestion, setSearchQuestion] = useState();
 
 
     return (
         <div>
-            <Navbar setSearch={setSearch} search={search}/>
+            <Navbar setSearch={setSearchQuestion} search={searchQuestion}/>
             <div className="container">
                 <div className="row">
                         <div className="col-lg-3 col-md-12">
@@ -56,7 +56,15 @@ export default function Accueil (){
                             </Link>
                         </div>
 
-                        {questions.map((question,id)=> <div key={id} className="card no-border p-3 my-3">
+            {questions.filter(question=> {
+              if (searchQuestion === ""){
+                return question;
+              }
+              else if (question.title.toLocaleLowerCase().includes(searchQuestion.toLocaleLowerCase())){
+                return question;
+              }
+              return 0;
+            }).map((question,id)=> <div key={id} className="card no-border p-3 my-3">
                             <div className="question">
                                 <h2 className="question__title">
                                     <Link to={`/details/${question.id}`} className="question__link">{question.title}</Link></h2>
