@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState} from "react";
 import { Link } from "react-router-dom";
 // import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useDispatch  } from "react-redux";
 import { AddQuestion } from "../Redux/actions";
-import { uid } from "uid";
 
 
 
@@ -13,23 +12,54 @@ export default function Question (){
     const dispatch = useDispatch()
 
     const [title,setTitle]=useState();
-    const [content,setContent]=useState()
+    const [content,setContent]=useState();
 
-    const handleAdd =(id)=>{
-        dispatch(AddQuestion({
-            id:uid(),
+  
+
+    // const handleAdd = ()=>{
+
+    //     const data = {
+    //         title,
+    //         content
+    //     }
+    //         fetch('http://127.0.0.1:4000/api/question',{
+    //         method:"POST",
+    //         headers :{'Content-Type':"application/json"},
+    //         body: JSON.stringify(data)
+    //     }).then((res)=>res.json())
+    //      .then((data)=> console.log(data))      
+    // }
+     const handleAdd = ()=>{
+        const data = {
             title,
             content
-        }))
-        setTitle(" ");
-        setContent("");
+        }
+            fetch('http://127.0.0.1:4000/api/question',{
+            method:"POST",
+            headers :{'Content-Type':"application/json"},
+            body: JSON.stringify(data)
+        }).then((res)=>res.json())
+         .then((data)=> dispatch(AddQuestion(data)))      
     }
+
+
+
+    // const handleAdd =(id)=>{
+    //     dispatch(AddQuestion({
+    //         id:uid(),
+    //         title,
+    //         content
+    //     }))
+    //     setTitle(" ");
+    //     setContent("");
+    // }
     const handleform = (event)=>{
         setTitle(event.target.value)
     }
     const handleContent = (event)=>{
         setContent(event.target.value)
     }
+
 
     return (
 

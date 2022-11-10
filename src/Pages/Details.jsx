@@ -78,7 +78,7 @@ export default function Details () {
                             <form>
                                 <textarea name="content" id="commentInput" cols="30" rows="3" className="form-control" placeholder="Ajouter un commentaire..." onChange={handleText} value={commentUser}></textarea>
                                     <div className="d-flex justify-content-end mt-3">
-                                        <button className="btn btn-primary text-white text-right shadow-sm" type="submit" onClick={handleComment}>Commenter </button>
+                                        <button className="btn btn-primary text-white text-right shadow-sm" type="submit" onClick={handleComment}>Commenter</button>
                                     </div>
                             </form>
                         </div>

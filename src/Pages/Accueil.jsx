@@ -1,7 +1,8 @@
 import Navbar from "./Navbar";
 import {Link} from 'react-router-dom';
-import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useSelector,useDispatch } from "react-redux";
+import { useState ,useEffect } from "react";
+import { AddQuestion } from "../Redux/actions";
 
 
 export default function Accueil (){
@@ -10,8 +11,16 @@ export default function Accueil (){
     const questions = useSelector(state=>state.questionReducer.questions);
     const [searchQuestion, setSearchQuestion] = useState();
     const todayDate = new Date(Date.now()).toISOString().slice(0, 10);
+    const dispatch = useDispatch();
+    
 
     // console.log(questions)
+
+    useEffect(() => {
+        fetch('http://127.0.0.1:4000/api/question')
+        .then((res)=>res.json())
+            .then((data)=> dispatch(AddQuestion(data))) 
+        })
 
 
     return (
@@ -58,7 +67,7 @@ export default function Accueil (){
                             </Link>
                         </div>
 
-            {questions.filter(question => {
+            {/* {questions.filter(question => {
               if (searchQuestion === ""){
                 return question;
               }
@@ -66,7 +75,11 @@ export default function Accueil (){
                 return question;
               }
               return 0;
-            }).map((question,id)=> <div key={id} className="card no-border p-3 my-3">
+              
+            }
+            ) */}
+            {questions.map((question,id)=> 
+            <div key={id} className="card no-border p-3 my-3">
                             <div className="question">
                                 <h2 className="question__title">
                                     <Link to={`/details/${question.id}`} className="question__link">{question.title}</Link></h2>
