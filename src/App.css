@@ -191,23 +191,23 @@ header{
   margin-bottom: 1rem;
   padding: 1rem;
 }
-.comment__author-name {
+.comment--author--name {
   color: #031b4e;
   font-size: 1rem;
   font-weight: bold;
   padding-left: 0.7rem;
 }
-.comment__author-info {
+.comment--author--info {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.comment__author {
+.comment--author {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.question-detail__content {
+.question--detail--content {
   color: #3b455a;
   font-size: 1.02rem;
 }

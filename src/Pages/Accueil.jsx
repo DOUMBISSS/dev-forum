@@ -1,18 +1,20 @@
 import Navbar from "./Navbar";
 import {Link} from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 
 
 export default function Accueil (){
 
     
-    const questions = useSelector(state=>state.questionReducer.questions)
+    const questions = useSelector(state=>state.questionReducer.questions);
+    const [search, setSearch] = useState();
 
 
     return (
         <div>
-            <Navbar/>
+            <Navbar setSearch={setSearch} search={search}/>
             <div className="container">
                 <div className="row">
                         <div className="col-lg-3 col-md-12">
@@ -62,12 +64,12 @@ export default function Accueil (){
                                     <p className="question__description my-2">{question.content}</p>
                                     <div className="d-flex justify-content-between">
                                       <span className="numbers--question--answers">4 reponses</span>
-                                        <div><a href="#empty" className="question__tags">React</a></div>
+                                        <div className="question__tags"> React</div>
                                     </div>
                             </div>
                             </div>
                         )}
-                        <div className="card no-border p-3 my-3">
+                        {/* <div className="card no-border p-3 my-3">
                             <div className="question ">
                                 <h2 className="question__title">
                                     <Link to='/details' className="question__link">Comment Gerer les users firebase ?</Link></h2>
@@ -75,11 +77,11 @@ export default function Accueil (){
                                     <p className="question__description my-2">Comment gérer sa liaison avec d'autres collection</p>
                                     <div className="d-flex justify-content-between">
                                       <span className="numbers--question--answers">4 reponses</span>
-                                        <div><a href="#empty" className="question__tags">React</a></div>
+                                      <div className="question__tags"> React</div>
                                     </div>
                             </div>
-                            </div>
-                        </div>
+                        </div> */}
+                    </div>
 
             </div>
         </div>

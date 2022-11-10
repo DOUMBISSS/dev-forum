@@ -41,7 +41,7 @@ export default function Details () {
                                     <h1>{questions.title}</h1>
                             </div>
 
-                            <div className="question-detail__content">
+                            <div className="question--detail--content">
                                     <pre>{questions.content}</pre>
                             </div>
 
@@ -58,34 +58,36 @@ export default function Details () {
                                                     <div className="comment__likes-count no-underline">
                                                     <i className="fa-solid fa-heart"></i>
                                                     <span>7</span></div>
-                                                    <div className="comment__content">
-                                                        <div className="comment__author">
-                                                            <div className="comment__author-info">
+                                                    <div className="comment--content">
+                                                        <div className="comment--author">
+                                                            <div className="comment--author--info">
                                                                 <img src="https://baroland.netlify.app/img/avatar.png" alt="" width="25" height="25"/>
-                                                                <span className="comment__author-name">{comment.author}</span>
+                                                                <span className="comment--author--name">{comment.author}</span>
                                                             </div>
                                                                 
-                                                                <div className="comment__ago"> <i className="fa-solid fa-clock"></i> il y'a 1min</div>
+                                                                <div className="comment--ago"> <i className="fa-solid fa-clock"></i> il y'a 1min</div>
                                                             </div>
-                                                                <div className="comment__text">
+                                                                <div className="comment--text">
                                                                     <p>{comment.commentUser}</p>
                                                                 </div>
                                                         </div>
                                                     </div>
                                                     )}
 
-                                    <div className="mt-3">
-                                    <form>
-                                        <textarea name="content" id="commentInput" cols="30" rows="3" className="form-control" placeholder="Ajouter un commentaire..." onChange={handleText} value={commentUser}></textarea>
-                                            <div className="d-flex justify-content-end mt-3">
-                                                <button className="btn btn-primary text-white text-right shadow-sm" type="submit" onClick={handleComment}>Commenter </button>
-                                                    </div>
-                                    </form>
-                                            </div>
+                        <div className="mt-3">
+                            <form>
+                                <textarea name="content" id="commentInput" cols="30" rows="3" className="form-control" placeholder="Ajouter un commentaire..." onChange={handleText} value={commentUser}></textarea>
+                                    <div className="d-flex justify-content-end mt-3">
+                                        <button className="btn btn-primary text-white text-right shadow-sm" type="submit" onClick={handleComment}>Commenter </button>
                                     </div>
+                            </form>
+                        </div>
+                    </div>
                                                                                                                         
                          <div className="col-md-12 col-lg-3">
-                            <Link to='/Accueil'><button className="btn--back">Retour <i className="fa-solid fa-arrow-left"></i></button></Link>
+                            <Link to='/Accueil'>
+                                <button className="btn--back">Retour <i className="fa-solid fa-arrow-left"></i></button>
+                            </Link>
                         </div>
 
                     </div>
