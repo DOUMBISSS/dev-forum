@@ -6,6 +6,12 @@ export function AddQuestion(question) {
         payload: question
     }
 }
+export function getAllQuestions(questions) {
+    return {
+        type: 'GET-ALL-QUESTIONS',
+        payload:questions
+    }
+}
 export function addComment(comment){
     return {
         type: 'ADD-COMMENT',

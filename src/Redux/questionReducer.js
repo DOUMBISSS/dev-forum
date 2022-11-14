@@ -3,6 +3,7 @@
 
 const initialState = {
     questions: [],
+    question: [],
     comments:[]
 }
 
@@ -10,14 +11,19 @@ export function questionReducer(state = initialState, action) {
     switch (action.type) {
         case "ADD-QUESTION": {
             return {
-                ...state,questions :[...state.questions,action.payload]
+                ...state,question :[...state.question,action.payload]
             } 
         }
-        case "ADD-COMMENT":{
+        case "GET-ALL-QUESTIONS": {
             return {
-                ...state,comments :[...state.comments,action.payload]
-            }
+                ...state,questions :action.payload
+            } 
         }
+        // case "ADD-COMMENT":{
+        //     return {
+        //         ...state,comments :[...state.comments,action.payload]
+        //     }
+        // }
         default: {
             return state
         }

@@ -14,21 +14,7 @@ export default function Question (){
     const [title,setTitle]=useState();
     const [content,setContent]=useState();
 
-  
 
-    // const handleAdd = ()=>{
-
-    //     const data = {
-    //         title,
-    //         content
-    //     }
-    //         fetch('http://127.0.0.1:4000/api/question',{
-    //         method:"POST",
-    //         headers :{'Content-Type':"application/json"},
-    //         body: JSON.stringify(data)
-    //     }).then((res)=>res.json())
-    //      .then((data)=> console.log(data))      
-    // }
      const handleAdd = ()=>{
         const data = {
             title,
@@ -39,7 +25,8 @@ export default function Question (){
             headers :{'Content-Type':"application/json"},
             body: JSON.stringify(data)
         }).then((res)=>res.json())
-         .then((data)=> dispatch(AddQuestion(data)))      
+         .then((data)=> dispatch(AddQuestion(data)))    
+        //  console.log(data)  
     }
 
 
@@ -99,13 +86,13 @@ export default function Question (){
                                                         </div>
                                                     </div>
 
-                                                        <div className="col-12 form-group">
-                                                       <Link to='/Accueil'><button type="submit" className="btn btn-primary d-block shadow-md w-100 btn-lg" onClick={handleAdd}>Poser ma question <i className="fa-solid fa-arrow-right"></i></button></Link>
-                                                        </div>
+                                                <div className="col-12 form-group">
+                                                <Link to='/Accueil'><button type="submit" className="btn btn-primary d-block shadow-md w-100 btn-lg" onClick={handleAdd}>Poser ma question <i className="fa-solid fa-arrow-right"></i></button></Link>
+                                                </div>
                                         </form>
-                                                        </div>
-                                                        </div>
-                                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
         </div>
     )
 }

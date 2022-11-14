@@ -45,23 +45,23 @@ export default function Register (){
                   <h2 className='login--content--header'>Créer mon compte</h2>
                       <form onSubmit={handleRegister}>
                       <div class="form-floating mb-3">
-                          <input type="text" class="form-control" id="floatingInput" placeholder="Name"/>
+                          <input type="text" className="form-control" id="floatingInput" placeholder="Name"/>
                           <label for="floatingInput">Nom</label>
                         </div>
                       <div class="form-floating mb-3">
-                          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required ref={registerEmail}/>
+                          <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" required ref={registerEmail}/>
                           <label for="floatingInput">Email</label>
                         </div>
                         <div class="form-floating">
-                          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required ref={registerPassword}/>
+                          <input type="password" className="form-control" id="floatingPassword" placeholder="Password" required ref={registerPassword}/>
                           <label for="floatingPassword">Mot de passe </label>
                         </div>
                         <div class="form-floating ">
-                          <input type="password" class="form-control" id="floatingPassword" placeholder="Confirm Password" />
+                          <input type="password" className="form-control" id="floatingPassword" placeholder="Confirm Password" />
                           <label for="floatingPassword">Mot de passe (confirmation)</label>
                         </div>
                         <Link to='/Accueil'>
-                          <button type="submit" class="btn btn-primary btn-block shadow">Inscription</button>
+                          <button type="submit" className="btn btn-primary btn-block shadow">Inscription</button>
                           </Link>
                       </form>
                   </div>

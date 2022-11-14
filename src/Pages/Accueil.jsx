@@ -2,26 +2,28 @@ import Navbar from "./Navbar";
 import {Link} from 'react-router-dom';
 import { useSelector,useDispatch } from "react-redux";
 import { useState ,useEffect } from "react";
-import { AddQuestion } from "../Redux/actions";
+import {getAllQuestions } from "../Redux/actions";
 
 
 export default function Accueil (){
 
-    
     const questions = useSelector(state=>state.questionReducer.questions);
     const [searchQuestion, setSearchQuestion] = useState();
     const todayDate = new Date(Date.now()).toISOString().slice(0, 10);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch(); 
+
+
+        // useEffect (()=>{
+        //             console.log(questions)
+        // },[questions])
+
     
-
-    // console.log(questions)
-
     useEffect(() => {
-        fetch('http://127.0.0.1:4000/api/question')
+        fetch('http://127.0.0.1:4000/api/questions')
         .then((res)=>res.json())
-            .then((data)=> dispatch(AddQuestion(data))) 
-        })
-
+        .then((questions)=>{dispatch(getAllQuestions(questions))})
+        .catch(e => { console.log(e)})
+        }, [])
 
     return (
         <div>
@@ -63,11 +65,26 @@ export default function Accueil (){
                         <div className="main--part--question">
                             <span>{questions.length} questions</span>
                             <Link to="/question">
-                                <button className="btn--question">Poser une question <i class="fa-solid fa-arrow-right"></i></button>
+                                <button className="btn--question">Poser une question <i className="fa-solid fa-arrow-right"></i></button>
                             </Link>
                         </div>
+            {questions && questions.map((question,id)=> <div key={id} className="card no-border p-3 my-3">
+                            <div className="question">
+                                <h2 className="question__title">
+                                    <Link to={`/details/${question.id}`} className="question__link">{question.title}</Link></h2>
+                                    <p className="question__time">{todayDate}</p>
+                                    <p className="question__description my-2">{question.content}</p>
+                                    <div className="d-flex justify-content-between">
+                                      <span className="numbers--question--answers">0 reponses</span>
+                                        <div className="question__tags"> React</div>
+                                    </div>
+                            </div>
+                    </div>
 
-            {/* {questions.filter(question => {
+                        )}
+                    </div>
+
+                                {/* {questions.filter(question => {
               if (searchQuestion === ""){
                 return question;
               }
@@ -78,33 +95,6 @@ export default function Accueil (){
               
             }
             ) */}
-            {questions.map((question,id)=> 
-            <div key={id} className="card no-border p-3 my-3">
-                            <div className="question">
-                                <h2 className="question__title">
-                                    <Link to={`/details/${question.id}`} className="question__link">{question.title}</Link></h2>
-                                    <p className="question__time">{todayDate}</p>
-                                    <p className="question__description my-2">{question.content}</p>
-                                    <div className="d-flex justify-content-between">
-                                      <span className="numbers--question--answers">4 reponses</span>
-                                        <div className="question__tags"> React</div>
-                                    </div>
-                            </div>
-                            </div>
-                        )}
-                        {/* <div className="card no-border p-3 my-3">
-                            <div className="question ">
-                                <h2 className="question__title">
-                                    <Link to='/details' className="question__link">Comment Gerer les users firebase ?</Link></h2>
-                                    <p className="question__time">05/26/2022</p>
-                                    <p className="question__description my-2">Comment gérer sa liaison avec d'autres collection</p>
-                                    <div className="d-flex justify-content-between">
-                                      <span className="numbers--question--answers">4 reponses</span>
-                                      <div className="question__tags"> React</div>
-                                    </div>
-                            </div>
-                        </div> */}
-                    </div>
 
             </div>
         </div>
