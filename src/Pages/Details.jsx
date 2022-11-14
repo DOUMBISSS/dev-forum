@@ -1,48 +1,65 @@
 import {Link,useParams} from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from 'react';
-import { addComment } from '../Redux/actions';
+import {useEffect ,useState} from 'react';
+import { AddQuestion,addComment } from '../Redux/actions';
 // import { uid } from "uid";
 
 
 export default function Details () {
 
-    let id = useParams().id;
-    const questions = useSelector(state=>state.questionReducer.questions);
-    const comments = useSelector(state=>state.questionReducer.comments);
     const dispatch = useDispatch ()
+    const question = useSelector(state=>state.questionReducer.question);
+    let id = useParams().id;
+
+    useEffect(() => {
+        fetch(`http://127.0.0.1:4000/api/question/${id}`)
+        .then((res)=>res.json())
+        .then((question)=>{dispatch(AddQuestion(question))})
+        .catch(e => { console.log(e)})
+        }, [question])
+
+
+    const comments = useSelector(state=>state.questionReducer.comments);
 
     const [commentUser,setCommentUser]=useState();
 
     const handleText =(event)=>{
         setCommentUser(event.target.value);
     }
+    
 
-
-    const handleComment =()=>{
-        dispatch(addComment({
-            commentUser
-        }))
-        setCommentUser(" ");
+    const handleComment = ()=>{
+        const dataComment = {
+         commentUser
+        }
+            fetch('http://127.0.0.1:4000/api/comment',{
+            method:"POST",
+            headers :{'Content-Type':"application/json"},
+            body: JSON.stringify(dataComment)
+        }).then((res)=>res.json())
+         .then((dataComment)=> dispatch(addComment(dataComment)))    
+         console.log(dataComment)  
     }
 
     
     return (
         <div>
+            <main>
             <div className="w-100 h-100 bg-white">
                 <div className="container">
                     <div className="row">
                         <div  key={id}className="col-md-12 col-lg-9">
-                            <span className="question-detail__head">{questions.title}</span>
+                            <span className="question-detail__head">{question.title}</span>
                             <div className="question-detail__title">
-                                <a href="#empty" className="d-flex flex-column align-items-center no-underline ">
+                                <div className="d-flex flex-column align-items-center no-underline ">
                                     <i className="fa-solid fa-heart"></i>
-                                    <span>10</span></a>
-                                    <h1>{questions.title}</h1>
+                                    <span>10</span>
+                                    </div>
+                                    <h1 className='question--detail--title'>{question.title}</h1>
                             </div>
 
                             <div className="question--detail--content">
-                                    <pre>{questions.content}</pre>
+                                    <pre>{question.title}</pre>
                             </div>
 
                                     <hr/>
@@ -50,14 +67,15 @@ export default function Details () {
                                         <span className="text-dark-blue font-weight-bold">{comments.length} reponses</span>
                                         <span className="d-flex align-items-center">
                                             <img src="https://baroland.netlify.app/img/avatar.png" alt="" width="20" height="20"/>
-                                                <span className="text-black ml-2">Kouyate Karim</span>
+                                                <span className="text-black ml-2">Doumbia Fode</span>
                                                 </span>
                                     </div>
 
-                                                {comments.map((comment, i) => <div key={i} className="comment">
-                                                    <div className="comment__likes-count no-underline">
+                                    {comments.map((comment, id) => <div key={id} className="comment">
+                                                <div className="comment__likes-count no-underline">
                                                     <i className="fa-solid fa-heart"></i>
-                                                    <span>7</span></div>
+                                                    <span>7</span>
+                                                </div>
                                                     <div className="comment--content">
                                                         <div className="comment--author">
                                                             <div className="comment--author--info">
@@ -66,13 +84,13 @@ export default function Details () {
                                                             </div>
                                                                 
                                                                 <div className="comment--ago"> <i className="fa-solid fa-clock"></i> il y'a 1min</div>
-                                                            </div>
+                                                        </div>
                                                                 <div className="comment--text">
                                                                     <p>{comment.commentUser}</p>
                                                                 </div>
-                                                        </div>
                                                     </div>
-                                                    )}
+                                        </div>
+                                    )}
 
                         <div className="mt-3">
                             <form>
@@ -95,7 +113,7 @@ export default function Details () {
                     </div>     
                                                                                                                                                      
                                                                                                                     
-                                                                                                                                                                                                   
+                    </main>                                                                                                                                                                              
                     </div>
     )
 }

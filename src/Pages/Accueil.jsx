@@ -71,7 +71,7 @@ export default function Accueil (){
             {questions && questions.map((question,id)=> <div key={id} className="card no-border p-3 my-3">
                             <div className="question">
                                 <h2 className="question__title">
-                                    <Link to={`/details/${question.id}`} className="question__link">{question.title}</Link></h2>
+                                    <Link to={`/details/${question._id}`} className="question__link">{question.title}</Link></h2>
                                     <p className="question__time">{todayDate}</p>
                                     <p className="question__description my-2">{question.content}</p>
                                     <div className="d-flex justify-content-between">

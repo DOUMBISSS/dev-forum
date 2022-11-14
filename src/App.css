@@ -254,6 +254,21 @@ header{
   padding: 0.6rem;
   transition: ease-in-out .2s;
 }
+.question--detail--title{
+  color: #031b4e;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+pre{
+  display: block;
+    font-size: .875em;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    overflow: auto;
+}
+main{
+  margin-top: 4rem;
+}
 
 
 

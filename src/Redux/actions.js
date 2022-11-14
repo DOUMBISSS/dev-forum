@@ -2,7 +2,7 @@
 
 export function AddQuestion(question) {
     return {
-        type: 'ADD-QUESTION',
+        type: 'GET-QUESTION',
         payload: question
     }
 }
@@ -12,10 +12,10 @@ export function getAllQuestions(questions) {
         payload:questions
     }
 }
-export function addComment(comment){
+export function addComment(comments){
     return {
-        type: 'ADD-COMMENT',
-        payload: comment
+        type: 'GET-COMMENT',
+        payload: comments
     }
 }
 
@@ -25,9 +25,3 @@ export function addUser(user){
         payload: user
     }
 }
-// export function getQuestion(id) {
-//     return {
-//         type: 'GET-QUESTION',
-//         payload: id
-//     }
-// }

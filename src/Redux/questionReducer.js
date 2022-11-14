@@ -9,9 +9,9 @@ const initialState = {
 
 export function questionReducer(state = initialState, action) {
     switch (action.type) {
-        case "ADD-QUESTION": {
+        case "GET-QUESTION": {
             return {
-                ...state,question :[...state.question,action.payload]
+                ...state,question :action.payload
             } 
         }
         case "GET-ALL-QUESTIONS": {
@@ -19,11 +19,11 @@ export function questionReducer(state = initialState, action) {
                 ...state,questions :action.payload
             } 
         }
-        // case "ADD-COMMENT":{
-        //     return {
-        //         ...state,comments :[...state.comments,action.payload]
-        //     }
-        // }
+        case "GET-COMMENT":{
+            return {
+                ...state,comment :[...state.comments,action.payload]
+            }
+        }
         default: {
             return state
         }
