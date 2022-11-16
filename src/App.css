@@ -278,7 +278,7 @@ main{
   background-color: white;
   z-index: 1000;
   right: 30px;
-  top: 40px;
+  top: -100px;
   border-radius: 1rem;
   padding: 1rem;
   transition: ease-in-out 1s;
@@ -288,7 +288,7 @@ main{
 }
 .display--user--part{
   transition: ease-in-out 1s;
-  top: -100px;
+  top: 40px;
 }
 .user--name{
   display: flex;
@@ -342,7 +342,7 @@ main{
   }
   .display--user--part{
     transition: ease-in-out 1s;
-    top: -100px;
+    top: 40px;
   }
 
 }

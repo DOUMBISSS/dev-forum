@@ -28,10 +28,10 @@ export default function Navbar ({searchQuestion,setSearchQuestion}) {
   const [display,setDisplay]=useState(false);
 
   const showProfil =()=>{
-    setDisplay(false)
+    setDisplay(true)
   }
   const closeProfil =()=>{
-    setDisplay(true)
+    setDisplay(false)
   }
 
     return (
