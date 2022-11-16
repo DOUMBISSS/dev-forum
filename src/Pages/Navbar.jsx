@@ -1,19 +1,38 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+// import React, { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import {Link} from 'react-router-dom';
+// import { addNewUser } from '../Redux/actions';
 // import { useState } from 'react';
 // import { addUser } from '../Redux/actions';
 
 export default function Navbar ({searchQuestion,setSearchQuestion}) {
 
-  const email =useSelector(state=>state.connexionReducer.email)
+  // const user =useSelector(state=>state.connexionReducer.user)
+  // const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   fetch('http://127.0.0.1:4000/register')
+  //   .then((res)=>res.json())
+  //   .then((user)=>{dispatch(addNewUser(user))}
+  //   )
+  //   .catch(e => { console.log(e)})
+  //   }, [])
+
+    
 
   const handleSearch = (e)=>{
     setSearchQuestion(e.target.value);
   }
 
-  // console.log(search)
+  const [display,setDisplay]=useState(false);
 
+  const showProfil =()=>{
+    setDisplay(false)
+  }
+  const closeProfil =()=>{
+    setDisplay(true)
+  }
 
     return (
       <div>
@@ -26,14 +45,23 @@ export default function Navbar ({searchQuestion,setSearchQuestion}) {
           <div className="navbar--right">
             <div className="navbar--right--content">
               <div className='profil'>
-                  <h6><i className="fa-solid fa-user"></i>{email.email}</h6>
+                <i className="fa-solid fa-user" onClick={showProfil}></i>
               </div>
-              <div className='login--part'>
-                  <h6><i className="fa-solid fa-right-from-bracket"></i>Logout</h6>
+                <div className= {display ? "user--part display--user--part" : "user--part" }>
+                  <div className="user--name">
+                    <h6> {/* {user.name} */} <i className="fa-solid fa-user" onClick={showProfil}></i> Doumbia Fode</h6>
+                    <div className='btn--close--login'>
+                      <i className="fa-solid fa-xmark" onClick={closeProfil}></i>
+                    </div>
+                  </div>
+                  <button className="logout--btn"> <i className="fa-solid fa-right-from-bracket"></i> Déconnexion</button>
+                </div>
               </div>
-            </div>   
-          </div>  
+            </div>    
     </header>
+         {/* <div className='login--part'>
+                  <h6><i className="fa-solid fa-right-from-bracket"></i>Logout</h6>
+              </div> */}
       
     <div className="main--header--part">
             <div className="d-flex justify-content-center align-items-center h-100 flex-column">

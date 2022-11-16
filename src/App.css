@@ -68,6 +68,7 @@ header{
   align-items: center;
   justify-content: center;
   margin-right: 1rem;
+  cursor: pointer;
 }
 .container--connexion{
   margin-left: auto;
@@ -269,6 +270,42 @@ pre{
 main{
   margin-top: 4rem;
 }
+.user--part{
+  width: 320px;
+  height: 100px;
+  position: fixed;
+  border: 1px solid coral;
+  background-color: white;
+  z-index: 1000;
+  right: 30px;
+  top: 40px;
+  border-radius: 1rem;
+  padding: 1rem;
+  transition: ease-in-out 1s;
+}
+.user--part > i{
+  cursor: pointer;
+}
+.display--user--part{
+  transition: ease-in-out 1s;
+  top: -100px;
+}
+.user--name{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logout--btn{
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #0069ff;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.btn--close--login{
+  cursor: pointer;
+}
 
 
 
@@ -296,6 +333,16 @@ main{
     width: 100%;
     padding-right: 0;
     padding-left: 0;
+  }
+  .user--part{
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: 40px;
+  }
+  .display--user--part{
+    transition: ease-in-out 1s;
+    top: -100px;
   }
 
 }

@@ -19,7 +19,7 @@ export default function Accueil (){
 
     
     useEffect(() => {
-        fetch('http://127.0.0.1:4000/api/questions')
+        fetch('http://127.0.0.1:4000/questions')
         .then((res)=>res.json())
         .then((questions)=>{dispatch(getAllQuestions(questions))})
         .catch(e => { console.log(e)})

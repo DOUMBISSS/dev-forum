@@ -19,9 +19,15 @@ export function addComment(comments){
     }
 }
 
-export function addUser(user){
+export function addNewUser(user){
+    return {
+        type: 'GET-NEW-USER',
+        payload: user
+    }
+}
+export function getUser(users){
     return {
         type: 'GET-USER',
-        payload: user
+        payload: users
     }
 }

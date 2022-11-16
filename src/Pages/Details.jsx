@@ -12,7 +12,7 @@ export default function Details () {
     let id = useParams().id;
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:4000/api/question/${id}`)
+        fetch(`http://127.0.0.1:4000/question/${id}`)
         .then((res)=>res.json())
         .then((question)=>{dispatch(AddQuestion(question))})
         .catch(e => { console.log(e)})
@@ -32,7 +32,7 @@ export default function Details () {
         const dataComment = {
          commentUser
         }
-            fetch('http://127.0.0.1:4000/api/comment',{
+            fetch('http://127.0.0.1:4000/comment',{
             method:"POST",
             headers :{'Content-Type':"application/json"},
             body: JSON.stringify(dataComment)
