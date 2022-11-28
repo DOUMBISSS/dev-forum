@@ -9,7 +9,7 @@ export default function Details () {
 
     const dispatch = useDispatch ()
     const question = useSelector(state=>state.questionReducer.question);
-    let id = useParams().id;
+    var id = useParams().id;
 
     useEffect(() => {
         fetch(`http://127.0.0.1:4000/question/${id}`)
@@ -21,25 +21,28 @@ export default function Details () {
 
     const comments = useSelector(state=>state.questionReducer.comments);
 
-    const [commentUser,setCommentUser]=useState();
+    const [content,setContent]=useState();
 
     const handleText =(event)=>{
-        setCommentUser(event.target.value);
+        setContent(event.target.value);
     }
     
 
-    const handleComment = ()=>{
+    const handleComment = (e)=>{
+        e.preventDefault();
         const dataComment = {
-         commentUser
+         content,
+         question_id: id
         }
-            fetch('http://127.0.0.1:4000/comment',{
-            method:"POST",
-            headers :{'Content-Type':"application/json"},
-            body: JSON.stringify(dataComment)
+        fetch('http://127.0.0.1:4000/comments',{
+        method:"POST",
+        headers :{'Content-Type':"application/json"},
+        body: JSON.stringify(dataComment)
         }).then((res)=>res.json())
-         .then((dataComment)=> dispatch(addComment(dataComment)))    
-         console.log(dataComment)  
+         .then((dataComment)=> dispatch(addComment(dataComment)))   
+         setContent("") 
     }
+
 
     
     return (
@@ -64,14 +67,15 @@ export default function Details () {
 
                                     <hr/>
                                     <div className="mb-4 answers-count ">
-                                        <span className="text-dark-blue font-weight-bold">{comments.length} reponses</span>
+                                        <span className="text-dark-blue font-weight-bold">{question.comments && question.comments.length} reponses</span>
                                         <span className="d-flex align-items-center">
                                             <img src="https://baroland.netlify.app/img/avatar.png" alt="" width="20" height="20"/>
                                                 <span className="text-black ml-2">Doumbia Fode</span>
                                                 </span>
                                     </div>
 
-                                    {comments.map((comment, id) => <div key={id} className="comment">
+                                    {question.comments && question.comments.map((comment)=> { 
+                                        return <div key={comment._id} className="comment">
                                                 <div className="comment__likes-count no-underline">
                                                     <i className="fa-solid fa-heart"></i>
                                                     <span>7</span>
@@ -80,21 +84,21 @@ export default function Details () {
                                                         <div className="comment--author">
                                                             <div className="comment--author--info">
                                                                 <img src="https://baroland.netlify.app/img/avatar.png" alt="" width="25" height="25"/>
-                                                                <span className="comment--author--name">{comment.author}</span>
+                                                                {/* <span className="comment--author--name">{comment.author}</span> */}
                                                             </div>
                                                                 
                                                                 <div className="comment--ago"> <i className="fa-solid fa-clock"></i> il y'a 1min</div>
                                                         </div>
                                                                 <div className="comment--text">
-                                                                    <p>{comment.commentUser}</p>
+                                                                <p >{comment.content}</p>
                                                                 </div>
                                                     </div>
                                         </div>
-                                    )}
+                                     })}   
 
                         <div className="mt-3">
                             <form>
-                                <textarea name="content" id="commentInput" cols="30" rows="3" className="form-control" placeholder="Ajouter un commentaire..." onChange={handleText} value={commentUser}></textarea>
+                                <textarea name="content" id="commentInput" cols="30" rows="3" className="form-control" placeholder="Ajouter un commentaire..." onChange={handleText} value={content}></textarea>
                                     <div className="d-flex justify-content-end mt-3">
                                         <button className="btn btn-primary text-white text-right shadow-sm" type="submit" onClick={handleComment}>Commenter</button>
                                     </div>

@@ -4,7 +4,7 @@
 const initialState = {
     questions: [],
     question: [],
-    comments:[]
+  
 }
 
 export function questionReducer(state = initialState, action) {
@@ -21,7 +21,7 @@ export function questionReducer(state = initialState, action) {
         }
         case "GET-COMMENT":{
             return {
-                ...state,comment :[...state.comments,action.payload]
+                ...state
             }
         }
         default: {

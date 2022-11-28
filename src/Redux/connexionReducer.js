@@ -2,8 +2,11 @@
 
 
 const initialState = {
-    email:[],
-    user:[]
+    isAuth:"" ,
+    token: "",
+    id: "",
+    email: "",
+    name : "",
 }
 
 export function connexionReducer(state = initialState, action) {
@@ -14,9 +17,7 @@ export function connexionReducer(state = initialState, action) {
             } 
         }
         case "GET-USER": {
-            return {
-                ...state,email :[...state.email,action.payload]
-            } 
+            return action.payload
         }
         default: {
             return state

@@ -9,7 +9,7 @@ export default function Accueil (){
 
     const questions = useSelector(state=>state.questionReducer.questions);
     const [searchQuestion, setSearchQuestion] = useState();
-    const todayDate = new Date(Date.now()).toISOString().slice(0, 10);
+    // const todayDate = new Date(Date.now()).toISOString().slice(0, 10);
     const dispatch = useDispatch(); 
 
 
@@ -72,11 +72,11 @@ export default function Accueil (){
                             <div className="question">
                                 <h2 className="question__title">
                                     <Link to={`/details/${question._id}`} className="question__link">{question.title}</Link></h2>
-                                    <p className="question__time">{todayDate}</p>
+                                    <p className="question__time">{question.date}</p>
                                     <p className="question__description my-2">{question.content}</p>
                                     <div className="d-flex justify-content-between">
-                                      <span className="numbers--question--answers">0 reponses</span>
-                                        <div className="question__tags"> React</div>
+                                      <span className="numbers--question--answers">{question.comments && question.comments.length} reponses</span>
+                                        <div className="question__tags"> {question.selected}</div>
                                     </div>
                             </div>
                     </div>

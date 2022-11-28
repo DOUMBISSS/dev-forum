@@ -1,44 +1,38 @@
-import { Link } from "react-router-dom";
-// import { useDispatch } from 'react-redux';
-// import { useState } from 'react';
-// import { addUser } from '../Redux/actions';
-import { useRef } from "react"; 
-import {auth} from '../firebase.config';
+import { useNavigate } from "react-router-dom";
+import { useState } from "react"; 
+
 
 
 export default function Login (){
-  // const [email,setEmail]=useState();
-  // const [password,setPassword]=useState();
-  // const dispatch =useDispatch();
+  const [email,setEmail]=useState();
+  const [password,setPassword]=useState();
+  const navigate = useNavigate();
 
-  // const handleEmail =(event)=>{
-  //     setEmail(event.target.value)
-  // }
+  const handleEmail =(event)=>{
+      setEmail(event.target.value)
+  }
 
-  // const Password = (event)=>{
-  //   setPassword(event.target.value)
-  // }
+  const handlePassword = (event)=>{
+    setPassword(event.target.value)
+  }
 
-  // const Connexion = ()=>{
-  //   dispatch(addUser({
-  //     email
-  // }))
-  // }
-
-  const loginEmail = useRef();
-  const loginPassword = useRef();
 
   const Connexion= (e)=>{
     e.preventDefault();
-    try {
-        auth.signInWithEmailAndPassword(
-        loginEmail.current.value,
-        loginPassword.current.value
-      );
+    const dataLogin = {
+      email,
+      password
     }
-        catch(error){
-      console.log(error.message);
-    } 
+    fetch('http://127.0.0.1:4000/login',{
+          method:"POST",
+          headers :{'Content-Type':"application/json"},
+          body: JSON.stringify(dataLogin)
+      }).then((res)=>res.json())
+       .then((userData)=> {
+        localStorage.clear();
+        localStorage.setItem("user",JSON.stringify(userData));
+        navigate('/Accueil')
+      })
   };
 
 
@@ -49,14 +43,14 @@ export default function Login (){
                   <h2 className='login--content--header'>Se connecter</h2>
                       <form>
                       <div className="form-floating mb-3">
-                          <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" required ref={loginEmail}/>
-                          <label for="floatingInput">Email </label>
+                          <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" required  onChange={handleEmail}/>
+                          <label htmlFor="floatingInput">Email </label>
                         </div>
                         <div className="form-floating">
-                          <input type="password" className="form-control" id="floatingPassword" placeholder="Password" required ref={loginPassword}/>
-                          <label for="floatingPassword">Mot de passe</label>
+                          <input type="password" className="form-control" id="floatingPassword" placeholder="Password" required  onChange={handlePassword}/>
+                          <label htmlFor="floatingPassword">Mot de passe</label>
                         </div>
-                        <Link to='/Accueil'><button type="submit" className="btn btn-primary btn-block shadow" onSubmit={Connexion}>Connexion</button></Link>
+                          <button type="submit" className="btn btn-primary btn-block shadow" onClick={Connexion}>Connexion</button>
                       </form>
                   </div>
 

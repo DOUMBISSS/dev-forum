@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 // import { useSelector } from "react-redux";
 import { useDispatch  } from "react-redux";
 import { AddQuestion } from "../Redux/actions";
+import { TagsInput } from "react-tag-input-component";
 
 
 
@@ -13,14 +14,16 @@ export default function Question (){
 
     const [title,setTitle]=useState();
     const [content,setContent]=useState();
+    // const [selected, setSelected] = useState([]);
 
 
      const handleAdd = ()=>{
         const data = {
             title,
             content,
+            // selected
         }
-            fetch('http://127.0.0.1:4000/question',{
+        fetch('http://127.0.0.1:4000/questions',{
             method:"POST",
             headers :{'Content-Type':"application/json"},
             body: JSON.stringify(data)
@@ -29,24 +32,13 @@ export default function Question (){
         //  console.log(data)  
     }
 
-
-
-    // const handleAdd =(id)=>{
-    //     dispatch(AddQuestion({
-    //         id:uid(),
-    //         title,
-    //         content
-    //     }))
-    //     setTitle(" ");
-    //     setContent("");
-    // }
     const handleform = (event)=>{
         setTitle(event.target.value)
     }
     const handleContent = (event)=>{
         setContent(event.target.value)
     }
-
+    
 
     return (
 
@@ -61,7 +53,9 @@ export default function Question (){
                                 </div>
                                 </div>
                                 <div className="col-2">
-                                    <Link to='/Accueil'><button className="btn--back">Retour <i className="fa-solid fa-arrow-left"></i></button></Link>
+                                    <Link to='/Accueil'>
+                                        <button className="btn--back">Retour <i className="fa-solid fa-arrow-left"></i></button>
+                                    </Link>
                                     </div>
                                     <form className="col-12 row" id="quizForm">
                                         <div className="col-12 form-group mt-4">
@@ -76,18 +70,17 @@ export default function Question (){
                                                     <div className="col-12 form-group">
                                                         <label for="content" className="questions__form-label">Technologies / Categories</label>
                                                         <div className="form-group">
-                                                            <label for="field-undefined"></label>
+                                                            <label htmlFor="field-undefined"></label>
                                                             <div className="tags-input">
-                                                                {/* <tags className="tagify tagify--noTags tagify--empty" tabindex="-1">
-                                                                    <span contenteditable="" tabindex="0" data-placeholder="type something" aria-placeholder="type something" className="tagify__input" role="textbox" aria-autocomplete="both" aria-multiline="false"></span>
-                                                                </tags> */}
-                                                                <input type='text' placeholder=""/>
+                                                                {/* <TagsInput value={selected} onChange={setSelected} name=""  placeHolder="Type Something"/> */}
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                 <div className="col-12 form-group">
-                                                <Link to='/Accueil'><button type="submit" className="btn btn-primary d-block shadow-md w-100 btn-lg" onClick={handleAdd}>Poser ma question <i className="fa-solid fa-arrow-right"></i></button></Link>
+                                                <Link to='/Accueil'>
+                                                    <button type="submit" className="btn btn-primary d-block shadow-md w-100 btn-lg" onClick={handleAdd}>Poser ma question <i className="fa-solid fa-arrow-right"></i></button>
+                                                </Link>
                                                 </div>
                                         </form>
                                         </div>
