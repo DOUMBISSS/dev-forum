@@ -2,6 +2,7 @@ import {Link,useParams} from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import {useEffect ,useState} from 'react';
 import { AddQuestion,addComment } from '../Redux/actions';
+import Navbar from './Navbar';
 // import { uid } from "uid";
 
 
@@ -42,7 +43,6 @@ export default function Details () {
          .then((dataComment)=> dispatch(addComment(dataComment)))   
          setContent("") 
     }
-
 
     
     return (

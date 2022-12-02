@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import { useSelector,useDispatch } from "react-redux";
 import { useState ,useEffect } from "react";
 import {getAllQuestions } from "../Redux/actions";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function Accueil (){
@@ -16,7 +18,6 @@ export default function Accueil (){
         // useEffect (()=>{
         //             console.log(questions)
         // },[questions])
-
     
     useEffect(() => {
         fetch('http://127.0.0.1:4000/questions')
@@ -24,6 +25,7 @@ export default function Accueil (){
         .then((questions)=>{dispatch(getAllQuestions(questions))})
         .catch(e => { console.log(e)})
         }, [])
+
 
     return (
         <div>

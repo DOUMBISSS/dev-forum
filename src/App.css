@@ -17,7 +17,7 @@ body{
 }
 header{
   width: 100%;
-  height: 60px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,19 +30,32 @@ header{
   justify-content: center;
 }
 .navbar--logo{
-  width: 230px;
-  height: 40px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar--logo--box{ 
+  width: 90%;
+  height: 90%;
+}
+.navbar--logo--box img{ 
+  width: 100%;
+  height: 100%;
+}
+.navbar--center{
+  width: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .navbar--right{
-  width: 70%;
+  width: 30%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 .navbar--right--content{
   display: flex;
@@ -272,7 +285,7 @@ main{
 }
 .user--part{
   width: 320px;
-  height: 100px;
+  height: 130px;
   position: fixed;
   background-color: white;
   z-index: 1000;
@@ -290,10 +303,23 @@ main{
   transition: ease-in-out 1s;
   top: 40px;
 }
+.btn--close--login{
+  cursor: pointer;
+  width: 10%;
+  justify-content: end;
+}
 .user--name{
+  width: 90%;
+}
+.user--name--content{
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:flex-end;
+}
+.user--email{
+  font-weight: bold;
+  color: gray ;
 }
 .logout--btn{
   width: 100%;
@@ -303,14 +329,22 @@ main{
   border-radius: 0.5rem;
   cursor: pointer;
 }
-.btn--close--login{
-  cursor: pointer;
-}
+
 .mb-4 {
   margin-bottom: 1.5rem!important;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.buttonload {
+  background-color: #04AA6D; /* Green background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 24px; /* Some padding */
+  font-size: 16px; /* Set a font-size */
+}
+.title{
+  font-size: bold;
 }
 
 

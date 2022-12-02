@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -12,7 +14,6 @@ export default function Register (){
   const [password2,setPassword2]=useState();
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
 
   const handleEmail =(event)=>{
       setEmail(event.target.value)
@@ -29,10 +30,21 @@ export default function Register (){
     setName(event.target.value)
   }
 
-  console.log(email,name,password,password2)
+  const notify = (e) => {
+    toast.error('Utilisateur créer avec succès !', {
+      position: "top-right",
+      autoClose: 3001,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  };
 
-  const handleRegister = (e)=>{
-    e.preventDefault();
+
+  const handleRegister = ()=>{
     const registerData ={
       name,
       email,
@@ -45,17 +57,16 @@ export default function Register (){
           body: JSON.stringify(registerData)
       }).then((res)=>res.json())
        .then((userData)=>{
-        console.log(userData)
         localStorage.clear();
         localStorage.setItem("user",JSON.stringify(userData));
-        navigate('/Accueil')
-       })    
-
+        navigate('/Accueil');
+        notify("") 
+       })
   }
 
     return (
         <div>
-                  <div className='login--content'>
+              <div className='login--content'>
                   <h2 className='login--content--header'>Créer mon compte</h2>
                       <form>
                       <div className="form-floating mb-3">
@@ -74,12 +85,9 @@ export default function Register (){
                           <input type="password" className="form-control" id="floatingPassword" placeholder="Confirm Password" required value={password2} onChange={handlePassword2}/>
                           <label htmlFor="floatingPassword">Mot de passe (confirmation)</label>
                         </div>
-                        <Link to='/Accueil'>
-                          {/* <button type="submit" className="btn btn-primary btn-block shadow" onClick={handleRegister}>Inscription</button> */}
                           <button type="submit" className="btn btn-primary btn-block shadow" onClick={handleRegister}>Inscription</button>
-                        </Link>
                       </form>
-                  </div>
-            </div>
+                </div>
+        </div>
     )
 }
