@@ -19,20 +19,22 @@ export default function Login (){
   const handlePassword = (event)=>{
     setPassword(event.target.value)
   }
-  const notify = (e) => {
-    toast.error('Email ou Mot de passe incorrect !', {
-      position: "top-right",
-      autoClose: 3001,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      });
-  };
 
 
+  // const notify = (e) => {
+  //   toast.error('Email ou Mot de passe incorrect !', {
+  //     position: "top-right",
+  //     autoClose: 3001,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "light",
+  //     });
+  // };
+  const [msg, setMsg]= useState();
+  
   const Connexion= (e) =>{
     e.preventDefault();
     const dataLogin = {
@@ -52,9 +54,8 @@ export default function Login (){
         setTimeout(()=>{
           setLoading(false)
         },5000);
-        notify("")    
-        }).catch(err => {toast(err);  
-      })
+        // notify("")    
+        }).catch(err => {setMsg(err.msg)})
   };
 
   // const [loading,setLoading] =useState(false);
@@ -72,6 +73,9 @@ export default function Login (){
                   <div className='login--content'>
                   <h2 className='login--content--header'>Se connecter</h2>
                       <form onSubmit={Connexion}>
+                      {/* <div className="alert alert-danger" role="alert">
+                        {msg}
+                      </div> */}
                       <div className="form-floating mb-3">
                           <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" required  onChange={handleEmail}/>
                           <label htmlFor="floatingInput">Email </label>
@@ -80,7 +84,7 @@ export default function Login (){
                           <input type="password" className="form-control" id="floatingPassword" placeholder="Password" required  onChange={handlePassword}/>
                           <label htmlFor="floatingPassword">Mot de passe</label>
                         </div>
-                        <button type="submit" className="btn btn-primary btn-block shadow">Connexion</button>
+                        <button type="submit" className="btn btn-primary btn-block shadow" >Connexion</button>
                           {/* { 
                           loading ? <ClipLoader color={"#36d7b7"} loading={loading}  size={100}  /> : (<button type="submit" className="btn btn-primary btn-block shadow">Connexion</button>)
                           } */}

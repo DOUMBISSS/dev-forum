@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const AuthMiddleware = (props) => {
@@ -12,6 +12,7 @@ const AuthMiddleware = (props) => {
             return navigate('/');
         }
         setIsLoggedIn(true);
+        return navigate('/Accueil');
     }
     useEffect(() => {
             checkUserToken();

@@ -9,8 +9,6 @@ export default function Home () {
 
   const [signUp,setSignUp] = useState(true);
 
-    
-
 
     return (
         <div>
@@ -24,8 +22,8 @@ export default function Home () {
             <div className='containter--second--part'>
             <div className='container--login'>
               <div className='container--login--header'>
-                  <button className='btn--header' style={{background :signUp ? "rgb(0, 105, 255)" :"rgb(8, 8, 8)" }} onClick={()=>setSignUp(true)}>Se connecter</button>
-                  <button className='btn--header' style={{background :signUp ? "rgb(8, 8, 8)" :"rgb(0, 105, 255)" }} onClick={()=>setSignUp(false)}>S'inscrire</button>
+                  <button className='btn--header' style={{background :signUp ? "coral" :"#3b455a" }} onClick={()=>setSignUp(true)}>Se connecter</button>
+                  <button className='btn--header' style={{background :signUp ? "#3b455a" :"coral" }} onClick={()=>setSignUp(false)}>S'inscrire</button>
               </div>
               {signUp ? <Login/> : <Register/>}
             </div>

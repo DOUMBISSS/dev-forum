@@ -1,8 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
-import { useDispatch } from "react-redux";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -30,18 +27,7 @@ export default function Register (){
     setName(event.target.value)
   }
 
-  const notify = (e) => {
-    toast.error('Utilisateur créer avec succès !', {
-      position: "top-right",
-      autoClose: 3001,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      });
-  };
+ 
 
 
   const handleRegister = ()=>{
@@ -60,8 +46,7 @@ export default function Register (){
         localStorage.clear();
         localStorage.setItem("user",JSON.stringify(userData));
         navigate('/Accueil');
-        notify("") 
-       })
+       }).catch(err => {alert(err.message)})
   }
 
     return (

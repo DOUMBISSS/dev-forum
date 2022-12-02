@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useDispatch  } from "react-redux";
 import { AddQuestion } from "../Redux/actions";
 import { TagsInput } from "react-tag-input-component";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 
 
@@ -43,6 +45,7 @@ export default function Question (){
     return (
 
         <div>
+            <Navbar/>
             <div className="container mt-4 pb-4">
                 <div className="col-md-12 col-lg-8 mx-auto">
                     <div className="bg-white shadow-md p-4 row">
@@ -86,6 +89,7 @@ export default function Question (){
                                         </div>
                                     </div>
                                 </div>
+                                <Footer/>
         </div>
     )
 }

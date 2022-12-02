@@ -3,22 +3,22 @@ import React, { useEffect, useState } from "react";
 
 
 
-const LoginMiddleware = (props) => {
+const RegisterMiddleware = (props) => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const logout = () => {
+    const register = () => {
     const userToken = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).token : null;
         if (!userToken || userToken === 'undefined') {
             setIsLoggedIn(true);
             return navigate('/');
         }
         else{
-            setIsLoggedIn(false);
+            setIsLoggedIn(true);
             return navigate('/Accueil')
         }
     }
     useEffect(() => {
-        logout();
+        register();
     }, [isLoggedIn]);
 
     return (
@@ -29,4 +29,4 @@ const LoginMiddleware = (props) => {
         </React.Fragment>
     );
 }
-export default LoginMiddleware;
+export default RegisterMiddleware;

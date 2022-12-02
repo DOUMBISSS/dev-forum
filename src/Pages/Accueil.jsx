@@ -5,6 +5,7 @@ import { useState ,useEffect } from "react";
 import {getAllQuestions } from "../Redux/actions";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "./Footer";
 
 
 export default function Accueil (){
@@ -12,7 +13,10 @@ export default function Accueil (){
     const questions = useSelector(state=>state.questionReducer.questions);
     const [searchQuestion, setSearchQuestion] = useState();
     // const todayDate = new Date(Date.now()).toISOString().slice(0, 10);
-    const dispatch = useDispatch(); 
+    const dispatch = useDispatch();
+    const handleSearch = (e)=>{
+        setSearchQuestion(e.target.value);
+      }
 
 
         // useEffect (()=>{
@@ -30,6 +34,18 @@ export default function Accueil (){
     return (
         <div>
             <Navbar setSearchQuestion={setSearchQuestion} searchQuestion={searchQuestion}/>
+            <div className="main--header--part">
+            <div className="d-flex justify-content-center align-items-center h-100 flex-column">
+                <div className="container banner__container">
+                    <h1 className="text-white font-weight-bold">Questions</h1>
+                        <p className="text-white font-weight-bold">Ce forum est ouvert à toutes les questions liées à la programmation.<br/>
+                        (PHP, Javascript, Java, C++, Ruby, Firebase, C, React, Dart, Julia...)</p>
+                    <div className="w-100">
+                        <input type="text" className="form-control form-control-lg w-100" placeholder="Rechercher des questions" onChange={handleSearch} value={searchQuestion}/>
+                    </div>
+                </div>
+             </div>
+      </div>
             <div className="container">
                 <div className="row">
                         <div className="col-lg-3 col-md-12">
@@ -66,7 +82,7 @@ export default function Accueil (){
                 <div className="col-lg-9 col-md-12">
                         <div className="main--part--question">
                             <span>{questions.length} questions</span>
-                            <Link to="/question">
+                            <Link to="/question" className="link__question">
                                 <button className="btn--question">Poser une question <i className="fa-solid fa-arrow-right"></i></button>
                             </Link>
                         </div>
@@ -100,6 +116,7 @@ export default function Accueil (){
 
             </div>
         </div>
+        <Footer/>
     </div>
     )
 }

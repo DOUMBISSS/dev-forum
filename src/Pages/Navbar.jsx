@@ -10,19 +10,32 @@ export default function Navbar ({searchQuestion,setSearchQuestion}) {
   const [user,setUser] = useState("");
   const [display,setDisplay]=useState(false);
 
-  const handleSearch = (e)=>{
-    setSearchQuestion(e.target.value);
-  }
+  // const handleSearch = (e)=>{
+  //   setSearchQuestion(e.target.value);
+  // }
   const showProfil =()=>{
     setDisplay(true)
   }
   const closeProfil =()=>{
     setDisplay(false)
   }
+  const notify = (e) => {
+    toast('Veuillez vous connecter svp !!', {
+      position: "top-right",
+      autoClose: 3001,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  };
 
   const logout =()=>{
     localStorage.clear();
     navigate('/');
+    notify('')
 
   }
 
@@ -67,19 +80,6 @@ useEffect(() => {
               </div>
             </div>    
     </header>
-      
-    <div className="main--header--part">
-            <div className="d-flex justify-content-center align-items-center h-100 flex-column">
-                <div className="container banner__container">
-                    <h1 className="text-white font-weight-bold">Questions</h1>
-                        <p className="text-white font-weight-bold">Ce forum est ouvert à toutes les questions liées à la programmation.<br/>
-                        (PHP, Javascript, Java, C++, Ruby, Firebase, C, React, Dart, Julia...)</p>
-                    <div className="w-100">
-                        <input type="text" className="form-control form-control-lg w-100" placeholder="Rechercher des questions" onChange={handleSearch} value={searchQuestion}/>
-                    </div>
-                </div>
-             </div>
-      </div>
 
      </div>
     );
