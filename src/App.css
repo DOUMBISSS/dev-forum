@@ -2,8 +2,6 @@
 *{
   font-family: 'Cairo', sans-serif;
   /* font-family: 'Edu VIC WA NT Beginner', cursive; */
-  /* font-family: 'Montserrat', sans-serif; */
-  /* font-family: 'Oswald', sans-serif; */
   /* font-family: 'Play', sans-serif; */
   /* font-family: 'Titillium Web', sans-serif; */
   /* font-family: 'Rajdhani', sans-serif; */
@@ -21,7 +19,7 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: gainsboro;
 }
 .navbar--left{
   width: 30%;
@@ -49,6 +47,9 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 1rem;
+  border-bottom: 3px solid gainsboro;
+  border-top: 3px solid gainsboro;
 }
 .navbar--right{
   width: 30%;
@@ -64,6 +65,22 @@ header{
   width: 100%;
   margin-right:2rem;
 }
+.profil{
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  border: 2px solid #031b4e;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+}
+.log{
+  font-size: 1rem;
+  margin-left: 0.3rem;
+  color: #031b4e;
+}
 .logo{
   text-decoration: none;
   color: #000;
@@ -74,14 +91,6 @@ header{
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-.profil{
-  width: 15%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1rem;
-  cursor: pointer;
 }
 .container--connexion{
   margin-left: auto;
@@ -124,6 +133,9 @@ header{
   /* background-color: #0069ff; */
   background-color: coral;
 }
+.btn:hover{
+  background-color: #031b4e;
+}
 .login--content--header{
   color: #000;
 }
@@ -148,23 +160,25 @@ header{
 .category--link:hover{
   color: #3490dc;
 }
-/* .row{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
 .question__link{
   color: #000;
   font-weight: 600;
-  /* text-decoration: none; */
 }
 .question__link:hover{
   text-decoration: none;
+}
+.question__description{
+  color: gray;
 }
 .numbers--question--answers{
   color: #3490dc;
   font-weight: 600;
 }
+/* .question__title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
 .question__tags{
     font-weight: 400;
     background: #f3f5f9;
@@ -205,10 +219,12 @@ header{
     text-decoration: none;
     padding: 0.5rem;
     width: 130px;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
     font-weight: bold;
 }
-
+.number__likes{
+  font-size: 1.1rem;
+}
 .comment {
   display: flex;
   justify-content: flex-start;
@@ -297,7 +313,7 @@ main{
   background-color: white;
   z-index: 1000;
   right: 30px;
-  top: -200px;
+  top: -300px;
   border-radius: 1rem;
   padding: 1rem;
   box-shadow: 0 0 10px black;
@@ -332,7 +348,8 @@ main{
   width: 100%;
   padding: 0.5rem;
   /* background-color: #0069ff; */
-  background-color: #031b4e;
+  /* background-color: #031b4e; */
+  background-color: coral;
   color: white;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -353,6 +370,13 @@ main{
 }
 .title{
   font-size: bold;
+  font-style: italic;
+}
+.categories{
+  /* text-align: center; */
+  /* font-weight: bold; */
+  margin-top: 1rem;
+  margin-left: 1.4rem;
 }
 .footer{
   width: 100%;
@@ -362,14 +386,45 @@ main{
   text-align: center;
   font-size: 1.1rem;
   font-weight: bold;
+  margin-top: 1rem;
+}
+.questions__likes{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
 }
 
-
 @media only screen and (max-width:576px){
-  .container--connexion{
-    margin-left: auto;
-    margin-right: auto;
-    flex-direction: column;
+  header{
+    height: 80px;
+    background-color: gainsboro;
+  }
+  .navbar--logo{
+    width: 80px;
+    height: 80px;
+  }
+  .navbar--logo--box{ 
+    width: 70%;
+    height: 70%;
+  }
+  .navbar--right--content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-right:0;
+  }
+  .profil{
+    width: 85%;
+    margin-right: 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  .log{
+    font-size: 0.75rem;
+    margin-left: 0;
+    color: #031b4e;
   }
   .container--first--part{
     width: 100%;
@@ -394,11 +449,30 @@ main{
     right: 0;
     left: 0;
     margin: auto;
-    top: -100px;
+    top: -200px;
   }
   .display--user--part{
     transition: ease-in-out 1s;
     top: 40px;
+  }
+
+}
+@media only screen and (min-width:578px) and (max-width:766px) {
+  .navbar--right--content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-right:0;
+  }
+  .profil{
+    width: 50%;
+    margin-right: 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  .log{
+    font-size: 0.8rem;
   }
 
 }

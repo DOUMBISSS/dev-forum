@@ -56,7 +56,7 @@ export default function Register (){
                       <form>
                       <div className="form-floating mb-3">
                           <input type="text" className="form-control" id="floatingInput" placeholder="Name"  onChange={handleName}/>
-                          <label htmlFor="floatingInput">Nom complets</label>
+                          <label htmlFor="floatingInput">Username</label>
                         </div>
                       <div className="form-floating mb-3">
                           <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" required value={email} onChange={handleEmail}/>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {useEffect ,useState} from 'react';
 import { AddQuestion,addComment } from '../Redux/actions';
 import Navbar from './Navbar';
-// import { uid } from "uid";
+import Footer from './Footer';
 
 
 export default function Details () {
@@ -27,6 +27,11 @@ export default function Details () {
     const handleText =(event)=>{
         setContent(event.target.value);
     }
+
+    // const [user,setUser] = useState("");
+    // useEffect(() => {
+    //     setUser(JSON.parse(localStorage.getItem("user"))) 
+    //     }, [])
     
 
     const handleComment = (e)=>{
@@ -47,22 +52,28 @@ export default function Details () {
     
     return (
         <div>
+            <Navbar/>
             <main>
             <div className="w-100 h-100 bg-white">
                 <div className="container">
+                <nav  aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><Link to='/Accueil'>Home</Link></li>
+                        <li class="breadcrumb-item active" aria-current="page">{question.title}</li>
+                    </ol>
+                </nav>
                     <div className="row">
                         <div  key={id}className="col-md-12 col-lg-9">
-                            <span className="question-detail__head">{question.title}</span>
+                            {/* <span className="question-detail__head">{question.title}</span> */}
                             <div className="question-detail__title">
                                 <div className="d-flex flex-column align-items-center no-underline ">
-                                    <i className="fa-solid fa-heart"></i>
-                                    <span>10</span>
+                                <p className="number__likes"><i class="fa-regular fa-heart"></i> 0 </p>
                                     </div>
                                     <h1 className='question--detail--title'>{question.title}</h1>
                             </div>
 
                             <div className="question--detail--content">
-                                    <pre>{question.title}</pre>
+                                    <p>{question.content}</p>
                             </div>
 
                                     <hr/>
@@ -70,7 +81,9 @@ export default function Details () {
                                         <span className="text-dark-blue font-weight-bold">{question.comments && question.comments.length} reponses</span>
                                         <span className="d-flex align-items-center">
                                             <img src="https://baroland.netlify.app/img/avatar.png" alt="" width="20" height="20"/>
-                                                <span className="text-black ml-2">Doumbia Fode</span>
+                                                <span className="text-black ml-2">
+                                                    {/* {user.name} */}
+                                                    </span>
                                                 </span>
                                     </div>
 
@@ -117,7 +130,8 @@ export default function Details () {
                     </div>     
                                                                                                                                                      
                                                                                                                     
-                    </main>                                                                                                                                                                              
+                    </main>
+                    <Footer/>                                                                                                                                                                           
                     </div>
     )
 }

@@ -62,7 +62,7 @@ useEffect(() => {
           <div className="navbar--right">
             <div className="navbar--right--content">
               <div className='profil'>
-                <i className="fa-solid fa-user" onClick={showProfil}></i>
+                <i className="fa-solid fa-user" onClick={showProfil}> <i className='log'>Mon profil</i> </i>
               </div>
                 <div className= {display ? "user--part display--user--part" : "user--part" }>
                   <div className="user--name--content">

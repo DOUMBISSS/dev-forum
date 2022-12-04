@@ -31,3 +31,10 @@ export function getUser(users){
         payload: users
     }
 }
+
+export function getCategories(category){
+    return {
+        type: 'GET-CATEGORIES',
+        payload:category
+    }
+}

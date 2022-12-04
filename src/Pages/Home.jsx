@@ -22,8 +22,8 @@ export default function Home () {
             <div className='containter--second--part'>
             <div className='container--login'>
               <div className='container--login--header'>
-                  <button className='btn--header' style={{background :signUp ? "coral" :"#3b455a" }} onClick={()=>setSignUp(true)}>Se connecter</button>
-                  <button className='btn--header' style={{background :signUp ? "#3b455a" :"coral" }} onClick={()=>setSignUp(false)}>S'inscrire</button>
+                  <button className='btn--header' style={{background :signUp ? "coral" :"#031b4e" }} onClick={()=>setSignUp(true)}>Se connecter</button>
+                  <button className='btn--header' style={{background :signUp ? "#031b4e" :"coral" }} onClick={()=>setSignUp(false)}>S'inscrire</button>
               </div>
               {signUp ? <Login/> : <Register/>}
             </div>
