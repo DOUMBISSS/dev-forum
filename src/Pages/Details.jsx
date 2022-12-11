@@ -67,7 +67,7 @@ export default function Details () {
                             {/* <span className="question-detail__head">{question.title}</span> */}
                             <div className="question-detail__title">
                                 <div className="d-flex flex-column align-items-center no-underline ">
-                                <p className="number__likes"><i class="fa-regular fa-heart"></i> 0 </p>
+                                <p className="number__likes"><i className="fa-regular fa-heart"></i> 0 </p>
                                     </div>
                                     <h1 className='question--detail--title'>{question.title}</h1>
                             </div>

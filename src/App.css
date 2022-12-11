@@ -180,7 +180,7 @@ header{
   justify-content: space-between;
 } */
 .question__tags{
-    font-weight: 400;
+    font-weight: 700;
     background: #f3f5f9;
     border-radius: 3px;
     color: #031b4e;
@@ -330,6 +330,7 @@ main{
   cursor: pointer;
   width: 10%;
   justify-content: end;
+  display: flex;
 }
 .user--name{
   width: 90%;
@@ -393,6 +394,23 @@ main{
   display: flex;
   align-items: center;
   font-weight: bold;
+}
+.teams--content--header{
+  font-weight: bold;
+}
+.teams--content{
+  width: 100%;
+  padding:0.5rem;
+  border: 1px solid gainsboro;
+  border-radius: 0.7rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+.btn--create--team{
+  padding: 0.5rem;
+  background-color: coral;
+  width: 100%;
+  border-radius: 0.7rem;
 }
 
 @media only screen and (max-width:576px){

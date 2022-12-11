@@ -17,14 +17,14 @@ export default function Question (){
     const [title,setTitle]=useState();
     const [content,setContent]=useState();
     const navigate = useNavigate();
-    // const [selected, setSelected] = useState([]);
+    const [categories, setCategories] = useState();
 
 
      const handleAdd = ()=>{
         const data = {
             title,
             content,
-            // selected
+            categories
         }
         fetch('http://127.0.0.1:4000/questions',{
             method:"POST",
@@ -41,7 +41,10 @@ export default function Question (){
     const handleContent = (event)=>{
         setContent(event.target.value)
     }
-    
+    const handleChange = (event)=>{
+        setCategories(event.target.value)
+    }
+
 
     return (
 
@@ -49,12 +52,12 @@ export default function Question (){
             <Navbar/>
             <div className="container mt-4 pb-4">
                 <div className="col-md-12 col-lg-8 mx-auto">
-                <nav  aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><Link to='/Accueil'>Home</Link></li>
-                    <li class="breadcrumb-item active" aria-current="page">Question</li>
-                </ol>
-                </nav>
+                    <nav  aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><Link to='/Accueil'>Home</Link></li>
+                            <li className="breadcrumb-item active" aria-current="page">Question</li>
+                        </ol>
+                    </nav>
                     <div className="bg-white shadow-md p-4 row">
                         <div className="col-12">
                             <h2 className="question__title mb-0">Poser une question</h2>
@@ -73,15 +76,19 @@ export default function Question (){
                                                     <div className="col-12 form-group">
                                                         <label htmlFor="content" className="questions__form-label">Technologies / Categories</label>     
                                                     </div>
-                                                    {/* <label for="exampleDataList" class="form-label">Datalist example</label>
-                                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." />
-                                                        <datalist class="datalistOptions">
-                                                            <option value="San Francisco">
-                                                            <option value="New York">
-                                                            <option value="Seattle">
-                                                            <option value="Los Angeles">
-                                                            <option value="Chicago">
-                                                        <datalist/> */}
+                                                    <select className="form-select" aria-label="Default select example" onChange={handleChange} value={categories}>
+                                                        <option selected>Choisir</option>
+                                                        <option value="React Js">React Js</option>
+                                                        <option value="PHP">PHP</option>
+                                                        <option value="Javascript">Javascript</option>
+                                                        <option value="MongoDB">MongoDB</option>
+                                                        <option value="Nosql">Nosql</option>
+                                                        <option value="Java">Java</option>
+                                                        <option value="C++">C++</option>
+                                                        <option value="C">C</option>
+                                                        <option value="C">Python</option>
+                                                        <option value="Ruby">Ruby</option>
+                                                    </select>
 
                                                 <div className="col-12 form-group">
                                                     <button type="submit" className="btn btn-primary d-block shadow-md w-100 btn-lg" onClick={handleAdd}>Poser ma question <i className="fa-solid fa-arrow-right"></i></button>

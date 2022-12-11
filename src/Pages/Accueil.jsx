@@ -30,7 +30,6 @@ export default function Accueil (){
         .catch(e => { console.log(e)})
         }, [])
 
-
     return (
         <div>
             <Navbar setSearchQuestion={setSearchQuestion} searchQuestion={searchQuestion}/>
@@ -121,6 +120,18 @@ export default function Accueil (){
                                             <span className="badge bg-primary rounded-pill">0</span>
                                         </li>
                             </ul>
+                            <div className="col-3 col-md-12">
+                                <div className="teams--content">
+                                        <h6 className="teams--content--header">Dev Forum for Teams</h6>
+                                        <p>– Start collaborating and sharing organizational knowledge.</p>
+                                        <div className="teams--content--images">
+                                            <img src="https://cdn.sstatic.net/Img/teams/teams-illo-free-sidebar-promo.svg?v=47faa659a05e" alt="" />
+                                        </div>
+                                        <div className="btn--block">
+                                            <button className="btn--create--team">Create your team</button>
+                                        </div>
+                                </div>
+                            </div>
                         </div>
 
                 <div className="col-lg-9 col-md-12">
@@ -149,16 +160,25 @@ export default function Accueil (){
                                     <p className="question__description my-2">{question.content}</p>
                                     <div className="d-flex justify-content-between">
                                       <span className="numbers--question--answers"> <i className="fa-regular fa-comment"></i> {question.comments && question.comments.length} commentaire(s)</span>
-                                        <div className="question__tags"> {question.selected}</div>
+                                        <div className="question__tags"> {question.categories}</div>
                                     </div>
                                     <div className="questions__likes">
-                                        <p className="number__likes"><i class="fa-regular fa-thumbs-up"></i> 0 </p>
+                                        <p className="number__likes"><i className="fa-regular fa-thumbs-up"></i> 0 </p>
                                     </div>
                             </div>
                     </div>
                         )}
                     </div>
             </div>
+            <nav aria-label="...">
+                <ul className="pagination pagination-sm">
+                    <li className="page-item active" aria-current="page">
+                    <span className="page-link">1</span>
+                    </li>
+                    <li className="page-item"><a class="page-link" href="#">2</a></li>
+                    <li className="page-item"><a class="page-link" href="#">3</a></li>
+                </ul>
+            </nav>
         </div>
         <Footer/>
     </div>
