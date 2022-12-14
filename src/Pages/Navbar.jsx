@@ -10,9 +10,6 @@ export default function Navbar ({searchQuestion,setSearchQuestion}) {
   const [user,setUser] = useState("");
   const [display,setDisplay]=useState(false);
 
-  // const handleSearch = (e)=>{
-  //   setSearchQuestion(e.target.value);
-  // }
   const showProfil =()=>{
     setDisplay(true)
   }

@@ -141,17 +141,7 @@ export default function Accueil (){
                                 <button className="btn--question">Poser une question <i className="fa-solid fa-arrow-right"></i></button>
                             </Link>
                         </div>
-                                              {/* {questions.filter(question => {
-              if (searchQuestion === ""){
-                return question;
-              }
-              else if (question.title?.toLocaleLowerCase().includes(searchQuestion?.toLocaleLowerCase())){
-                return question;
-              }
-              return 0;
-              
-            }
-            ) */}
+                 
                     {questions && questions.map((question,id)=> <div key={id} className="card no-border p-3 my-3">
                             <div className="question">
                                 <h2 className="question__title">
