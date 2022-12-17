@@ -56,12 +56,12 @@ export default function Details () {
             <main>
             <div className="w-100 h-100 bg-white">
                 <div className="container">
-                <nav  aria-label="breadcrumb">
+                <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><Link to='/Accueil'>Home</Link></li>
-                        <li class="breadcrumb-item active" aria-current="page">{question.title}</li>
+                    <li className="breadcrumb-item"><Link to='/Accueil'>Home</Link></li>
+                        <li className="breadcrumb-item active" aria-current="page">Question / Reponse</li>
                     </ol>
-                </nav>
+                    </nav>
                     <div className="row">
                         <div  key={id}className="col-md-12 col-lg-9">
                             {/* <span className="question-detail__head">{question.title}</span> */}
