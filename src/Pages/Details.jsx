@@ -40,7 +40,7 @@ export default function Details () {
          content,
          question_id: id
         }
-        fetch('http://127.0.0.1:4000/comments',{
+        fetch('http://backdev.mayedo.ci/comments',{
         method:"POST",
         headers :{'Content-Type':"application/json"},
         body: JSON.stringify(dataComment)

@@ -41,7 +41,7 @@ export default function Login (){
       email,
       password
     }
-    fetch('http://127.0.0.1:4000/login',{
+    fetch('http://backdev.mayedo.ci/login',{
           method:"POST",
           headers :{'Content-Type':"application/json"},
           body: JSON.stringify(dataLogin)
